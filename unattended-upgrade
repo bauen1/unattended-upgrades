@@ -2366,10 +2366,16 @@ def run(options,             # type: Options
     pkg_install_success = True
     if len(pkgs_to_upgrade) > 0:
         # do install
-        pkg_install_success = do_install(cache,
-                                         pkgs,
-                                         options,
-                                         logfile_dpkg)
+        if "selinux-bauen1-policy" in pkgs:
+            pkg_install_success = do_install(cache,
+                                             ["selinux-bauen1-policy"],
+                                             options,
+                                             logfile_dpkg)
+        if pkg_install_success:
+            pkg_install_success = do_install(cache,
+                                             pkgs,
+                                             options,
+                                             logfile_dpkg)
     # Was the overall run succesful: only if everything installed
     # fine and nothing was held back because of a conffile prompt.
     successful_run = (kernel_pkgs_remove_success and pkg_install_success

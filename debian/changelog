@@ -1,3 +1,11 @@
+unattended-upgrades (2.8+dev1) UNRELEASED; urgency=medium
+
+  * If selinux-bauen1-policy is to be upgraded, do it first,
+    as it may contain changes necessary for the upgrade to
+    succeed
+
+ -- bauen1 <j2468h@gmail.com>  Sat, 19 Feb 2022 14:46:22 +0100
+
 unattended-upgrades (2.8) unstable; urgency=medium
 
   [ Lucas Moura ]
